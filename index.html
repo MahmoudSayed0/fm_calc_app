@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="main.css">
+
+  <!-- Required Addons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+  <title>Frontend Mentor | Age calculator app</title>
+  
+  <script src="index.js"></script>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center">
+
+
+  <section
+  x-data="app"
+  class=" flex flex-col p-10 bg-white rounded-2xl mx-3 max-w-xl" 
+  style="border-bottom-right-radius: 8rem;">
+    <div class="flex items-center ">
+      <div class="flex flex-col ">
+        <label class="mb-1 uppercase tracking-widest" :class="showErrorD ? 'text-red-500' : ''">Day</label>
+        <input 
+          type="number" 
+          required
+          placeholder="DD"
+          x-model="day" 
+          class="p-2 border-2 w-3/4 rounded-lg placeholder:font-bold" 
+          :class="showErrorD ? 'focus:border-red-500 border-red-500 invalid:border-red-500' : ''"
+        >
+        <div 
+          x-text="errorD"
+          x-show="showErrorD"
+          class="mt-1 text-red-500 text-sm"
+          >
+        </div>
+
+      </div>
+      <div class="flex flex-col ">
+        <label class="mb-1 uppercase tracking-widest" :class="showErrorD ? 'text-red-500' : ''">month</label>
+        <input 
+          type="number" 
+          required
+          placeholder="MM"
+          x-model="month" 
+          class="p-2 border-2 w-3/4 rounded-lg placeholder:font-bold" 
+          :class="showErrorM ? 'focus:border-red-500 border-red-500 invalid:border-red-500' : ''"
+        >
+        <div 
+          x-text="errorM"
+          x-show="showErrorM" 
+          class="mt-1 text-red-500 text-sm">
+        </div>
+
+      </div>
+      <div class="flex flex-col">
+        <label class="mb-1 uppercase tracking-widest" :class="showErrorD ? 'text-red-500' : ''">year</label>
+        <input 
+          type="number" 
+          required 
+          placeholder="YYYY"
+          x-model="year" 
+          class="p-2 border-2 w-3/4 rounded-lg placeholder:font-bold"
+          :class="showErrorY ? 'focus:border-red-500 border-red-500 invalid:border-red-500' : ''"
+        >
+        <div 
+          x-text="errorY"
+          x-show="showErrorY" 
+          class="mt-1 text-red-500 text-sm">
+        </div>
+
+      </div>
+    </div>
+    <div class="relative flex flex-row-reverse my-8 items-center justify-center sm:justify-normal">
+      <button type="submit" @click="calcYourAge()" class="bg-purple-600 z-10 p-4 rounded-full hover:bg-black">
+        <img width="35" height=35" src="./assets/images/icon-arrow.svg" alt="submit">
+      </button>
+      <hr class="w-full z-0 border-gray-300 border-1 border-solid absolute">
+    </div>
+    <div class="bottom font-black">
+      <div>
+        <div class="year flex">
+          <div x-text="textYear" class="text-purple-600">
+            - -
+          </div>
+          <div class="italic">
+            years
+          </div>
+           
+        </div>
+        <div class="months flex">
+          <div x-text="textMonth" class="text-purple-600">
+            - -
+          </div>
+          <div class="italic">
+            months
+          </div>
+        </div>
+        <div class="days flex">
+          <div x-text="textDay" class="text-purple-600">
+            - -
+          </div>
+          <div class="italic">
+            days
+          </div>
+        </div>
+      </div>
+      
+    
+      
+    
+      
+    
+      
+     
+      
+    </div>
+  </section>
+ 
+  
+  <div class="footer">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#" class="text-purple-600">Mahmoud Omar</a>.
+  </div>
+</body>
+</html>
